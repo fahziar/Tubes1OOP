@@ -11,8 +11,12 @@ private:
 	int tahun;
 public:
 	
-	///Konstruktor date.
+	///Konstruktor date tanpa parameter.
 	Date();
+	///Konstruktor date dengan parameter.
+	Date(int, int, int);
+	///Destruktor date.
+	~Date();
 
 	///Getter untuk hari.
 	int getHari();
