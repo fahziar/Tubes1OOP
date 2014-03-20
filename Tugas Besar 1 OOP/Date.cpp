@@ -9,16 +9,24 @@ Date::Date()
 	tahun = 0;
 }
 
-Date::Date(int h, int b, int t)
+Date::Date(int hari, int bulan, int tahun)
 {
-	hari = h;
-	bulan = b;
-	tahun = t;
+	this->hari = hari;
+	this->bulan = bulan;
+	this->tahun = tahun;
 }
 
 Date::~Date()
 {
 
+}
+
+Date& Date::operator= (const Date& date)
+{
+	this->hari = date.hari;
+	this->bulan = date.bulan;
+	this->tahun = date.tahun;
+	return *this;
 }
 
 int Date::getHari()
@@ -36,17 +44,17 @@ int Date::getTahun()
 	return tahun;
 }
 
-void Date::setHari(int h)
+void Date::setHari(int hari)
 {
-	hari = h;
+	this->hari = hari;
 }
 
-void Date::setBulan(int b)
+void Date::setBulan(int bulan)
 {
-	bulan = b;
+	this->bulan = bulan;
 }
 
-void Date::setTahun(int t)
+void Date::setTahun(int tahun)
 {
-	tahun = t;
+	this->tahun = tahun;
 }

@@ -11,6 +11,9 @@ public:
 	///Konstruktor waktu dengan paramater detik, menit, dan jam.
 	Time(int jam, int menit, int detik);
 
+	///Operator assignment untuk waktu.
+	Time& operator= (const Time&);
+
 	///Destruktor untuk waktu.
 	~Time();
 

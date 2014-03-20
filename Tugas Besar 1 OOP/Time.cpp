@@ -14,6 +14,14 @@ Time::Time(int jam, int menit, int detik)
 	this->setDetik(detik);
 }
 
+Time& operator= (const Time& time)
+{
+	this->jam = time.jam;
+	this->menit = time.menit;
+	this->detik = time.detik;
+	return *this;
+}
+
 int Time::getDetik()
 {
 	return detik;

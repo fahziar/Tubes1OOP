@@ -18,6 +18,9 @@ public:
 	///Destruktor date.
 	~Date();
 
+	///Operator Asignment date.
+	Date& operator= (const Date&);
+
 	///Getter untuk hari.
 	int getHari();
 	///Getter untuk bulan.
