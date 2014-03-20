@@ -12,7 +12,7 @@ public:
 	Time(int jam, int menit, int detik);
 
 	///Operator assignment untuk waktu.
-	Time& operator= (const Time&);
+	Time& operator= const Time&);
 
 	///Destruktor untuk waktu.
 	~Time();

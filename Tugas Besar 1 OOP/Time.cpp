@@ -14,7 +14,7 @@ Time::Time(int jam, int menit, int detik)
 	this->setDetik(detik);
 }
 
-Time& operator= (const Time& time)
+Time& Time::operator= (const Time& time)
 {
 	this->jam = time.jam;
 	this->menit = time.menit;
