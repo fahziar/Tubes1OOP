@@ -70,13 +70,11 @@
     <ClInclude Include="EventA.h" />
     <ClInclude Include="EventB.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Teller.h" />
     <ClInclude Include="TellerA.h" />
     <ClInclude Include="TellerB.h" />
     <ClInclude Include="Time.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
