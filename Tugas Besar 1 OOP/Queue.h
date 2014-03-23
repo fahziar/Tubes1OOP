@@ -25,6 +25,8 @@ public:
 	bool isFull() const;
 	///Mengembalikan jumlah pada queue saat ini
 	int NbElement() const;
+	///Mengembalikan batas maksimal queue saat ini
+	int getSize() const;
 
 private:
 	///Array yang digunakan sebgaia representasi queue
@@ -140,4 +142,9 @@ T Queue<T>::DeleteLast()
 	retur this->T[tail];
 }
 
+template <typename T>
+int Queue<T>::getSize()
+{
+	return size;
+}
 #endif
