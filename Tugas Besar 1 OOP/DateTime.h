@@ -10,7 +10,6 @@ class DateTime
 public:
 	///Konstruktor dari kelas DateTime
 	DateTime();
-	~DateTime();
 	
 	///Untuk mengeset Date
 	void setDate(Date);
