@@ -4,7 +4,7 @@
 #include "Teller.h"
 #include "Queue.h"
 /*! \brief
-	Kelas ini digunakna untuk merepresentasikan Teller. Queue yang digunakan adalah queue buatan sendiri
+Kelas ini digunakna untuk merepresentasikan Teller. Queue yang digunakan adalah queue buatan sendiri
 */
 using namespace std;
 template <typename T>
@@ -20,6 +20,12 @@ public:
 	T deleteAntrian();
 	///Menghapus elemen paling belakang antrian. Mengembalikan elemen yang dihapus.
 	T deleteLastAntrian();
+	///Untuk mendapatkan state teller.
+	virtual int getState();
+	///Untuk mengeset state dari teller.
+	virtual void setState(int state);
+	///Mengeprint isi antrian ke layar
+	virtual void print();
 };
 
 template <typename T>
@@ -37,7 +43,7 @@ void TellerA<T>::setState(int state)
 template <typename T>
 void TellerA<T>::addAntrian(T elemen)
 {
-	q.Add(T);
+	q.Add(elemen);
 }
 
 template <typename T>
@@ -53,11 +59,11 @@ T TellerA<T>::deleteLastAntrian()
 }
 
 template <typename T>
-T TellerA<T>::print()
+void TellerA<T>::print()
 {
-	int nbElement = q.NBElement();
+	int nbElement = q.NbElement();
 	int i;
-	Queue tempQueue(q.getSize);
+	Queue<T> tempQueue(q.getSize());
 	T temp;
 
 	//Tampilkan elemen queue
@@ -73,7 +79,7 @@ T TellerA<T>::print()
 		cout << temp;
 
 		tempQueue.Add(temp);
-		
+
 	}
 	cout << "}";
 
@@ -81,7 +87,7 @@ T TellerA<T>::print()
 	for (i = 0; i < nbElement; i++)
 	{
 		temp = tempQueue.Delete();
-		q.add(temp);
+		q.Add(temp);
 	}
 }
 #endif
