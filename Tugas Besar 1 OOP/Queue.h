@@ -1,7 +1,8 @@
 #ifndef QUEUE_OOP_H
 #define QUEUE_OOP_H
+#include <cstdlib>
 /*! \brief
-	Kelas untuk merepresentasikan antrian dengan menggunakan array.
+Kelas untuk merepresentasikan antrian dengan menggunakan array.
 */
 template <typename T>
 class Queue
@@ -30,7 +31,7 @@ public:
 
 private:
 	///Array yang digunakan sebgaia representasi queue
-	T tabel[];
+	T *tabel;
 	///Ukuran dari tabel
 	int size;
 	///Jumlah elemen saat ini
@@ -41,17 +42,17 @@ private:
 template <typename T>
 Queue<T>::Queue()
 {
-	this->T = new T[Queue::defaultSize + 1];
+	try {
 
-	if (this->T == NULL)
-	{
-		this->size = 0;
-	}
-	else {
+		this->tabel = new T[Queue::defaultSize + 1];
 		this->size = Queue::defaultSize;
 		this->head = 1;
-		this->tail = 1;
-		Nb = 0;
+		this->tail = 2;
+
+	}
+	catch (...)
+	{
+		this->size = 0;
 	}
 }
 
@@ -59,40 +60,33 @@ Queue<T>::Queue()
 template <typename T>
 Queue<T>::Queue(int size)
 {
-	this->T = new T[size + 1];
-
-	if (this->T == NULL)
+	try
 	{
-		this->size = 0;
-	}
-	else {
+		this->tabel = new T[size + 1];
 		this->size = size;
-		Nb = 0;
 		this->head = 1;
 		this->tail = 2;
+	}
+	catch (...)
+	{
+		this->size = 0;
 	}
 }
 
 template <typename T>
 Queue<T>::~Queue()
 {
-	delete[] T;
+	delete[] tabel;
 }
 
 template <typename T>
-bool Queue<T>::isFull()
+bool Queue<T>::isFull() const
 {
-	if (this->head + 1 == this->tail)
-	{
-		return true;
-	}
-	else {
-		return false;
-	}
+	return tail == head;
 }
 
 template <typename T>
-int Queue<T>::NbElement()
+int Queue<T>::NbElement() const
 {
 	if (this->head + 1 == this->tail)
 	{
@@ -109,7 +103,7 @@ int Queue<T>::NbElement()
 template <typename T>
 void Queue<T>::Add(T newElement)
 {
-	this->T[this->tail] = newElement;
+	this->tabel[this->tail] = newElement;
 	this->tail++;
 	if (this->tail == this->size + 2)
 	{
@@ -127,7 +121,7 @@ T Queue<T>::Delete()
 
 	}
 
-	return this->T[this->head];
+	return this->tabel[this->head];
 }
 
 template <typename T>
@@ -139,11 +133,11 @@ T Queue<T>::DeleteLast()
 		this->tail = this->size + 1;
 	}
 
-	retur this->T[tail];
+	return this->tabel[tail];
 }
 
 template <typename T>
-int Queue<T>::getSize()
+int Queue<T>::getSize() const
 {
 	return size;
 }
